@@ -12,18 +12,17 @@
         }
 
         :root {
-            --primary-black: #0a0e27;
-            --secondary-black: #1a1f3a;
-            --accent-green: #00ff41;
-            --accent-gold: #ffd700;
+            --black: #0a0e27;
+            --dark-gray: #1a1f3a;
+            --gold: #d4af37;
+            --white: #ffffff;
             --text-light: #e0e0e0;
-            --text-muted: #888;
-            --warning-red: #ff4444;
+            --text-muted: #888888;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 100%);
+            background: var(--black);
             color: var(--text-light);
             line-height: 1.6;
             overflow-x: hidden;
@@ -41,41 +40,30 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 2px solid var(--accent-green);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
 
-        .logo-nav {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            color: var(--accent-gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .logo-nav span {
-            color: var(--accent-green);
+            color: var(--gold);
+            text-decoration: none;
         }
 
         nav ul {
             display: flex;
             list-style: none;
             gap: 2rem;
-            flex-wrap: wrap;
         }
 
         nav a {
             color: var(--text-light);
             text-decoration: none;
             transition: color 0.3s;
-            font-weight: 500;
-            font-size: 0.9rem;
         }
 
         nav a:hover {
-            color: var(--accent-green);
+            color: var(--gold);
         }
 
         /* Hero Section */
@@ -84,605 +72,232 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
             padding: 2rem;
             margin-top: 60px;
-            position: relative;
-            overflow: hidden;
+            text-align: center;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0, 255, 65, 0.1) 0%, transparent 70%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.1); }
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            max-width: 1200px;
-            z-index: 10;
-            position: relative;
-        }
-
-        .hero-text h1 {
+        .hero-content h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-green));
+            background: linear-gradient(135deg, var(--gold), var(--white));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            line-height: 1.2;
         }
 
-        .hero-text p {
-            font-size: 1.2rem;
+        .hero-content p {
+            font-size: 1.3rem;
             color: var(--text-muted);
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--accent-green);
             margin-bottom: 2rem;
-            font-weight: bold;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-buttons {
             display: flex;
             gap: 1rem;
+            justify-content: center;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 1rem 2rem;
-            border: 2px solid var(--accent-green);
-            background: transparent;
-            color: var(--accent-green);
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
             font-size: 1rem;
-            font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
             display: inline-block;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .btn:hover {
-            background: var(--accent-green);
-            color: var(--primary-black);
+        .btn-primary {
+            background: var(--gold);
+            color: var(--black);
+            font-weight: bold;
+        }
+
+        .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
         }
 
-        .btn-gold {
-            border-color: var(--accent-gold);
-            color: var(--accent-gold);
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
         }
 
-        .btn-gold:hover {
-            background: var(--accent-gold);
-            color: var(--primary-black);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        .btn-secondary:hover {
+            background: var(--gold);
+            color: var(--black);
         }
 
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-image img {
-            width: 100%;
-            max-width: 400px;
-            filter: drop-shadow(0 0 30px rgba(0, 255, 65, 0.3));
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Disclaimer Section */
-        .disclaimer {
-            background: linear-gradient(135deg, rgba(255, 68, 68, 0.1), rgba(255, 215, 0, 0.1));
-            border: 2px solid var(--warning-red);
-            border-radius: 10px;
-            padding: 2rem;
-            margin: 3rem 2rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .disclaimer h3 {
-            color: var(--warning-red);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-        }
-
-        .disclaimer p {
-            color: var(--text-light);
-            margin-bottom: 0.8rem;
-            line-height: 1.8;
-        }
-
-        .disclaimer strong {
-            color: var(--accent-green);
-        }
-
-        /* Section Styles */
+        /* Section */
         section {
-            padding: 5rem 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--accent-gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .section-container {
+            padding: 4rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* The Vision Section */
-        .vision {
-            background: linear-gradient(180deg, transparent, rgba(0, 255, 65, 0.05));
-        }
-
-        .vision-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .vision-text h3 {
-            color: var(--accent-gold);
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .vision-text p {
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-
-        .vision-image {
-            display: flex;
-            justify-content: center;
-        }
-
-        .vision-image img {
-            width: 100%;
-            max-width: 100%;
-            border-radius: 10px;
-            filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.2));
-        }
-
-        /* The Meme Token Section */
-        .meme-token {
-            background: linear-gradient(180deg, rgba(0, 255, 65, 0.05), transparent);
-        }
-
-        .meme-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .meme-image {
-            display: flex;
-            justify-content: center;
-            order: -1;
-        }
-
-        .meme-image img {
-            width: 100%;
-            max-width: 100%;
-            border-radius: 10px;
-            filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.2));
-        }
-
-        .meme-text h3 {
-            color: var(--accent-gold);
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .meme-text p {
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-
-        .highlight {
-            background: linear-gradient(90deg, rgba(0, 255, 65, 0.2), transparent);
-            padding: 1rem;
-            border-left: 4px solid var(--accent-green);
-            margin: 1rem 0;
-        }
-
-        /* Utility Token Section */
-        .utility {
-            background: linear-gradient(180deg, transparent, rgba(0, 255, 65, 0.05));
-        }
-
-        .utility-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .utility-card {
-            background: linear-gradient(135deg, rgba(0, 255, 65, 0.05), rgba(255, 215, 0, 0.05));
-            border: 2px solid var(--accent-green);
-            padding: 2rem;
-            border-radius: 10px;
-            transition: all 0.3s;
-        }
-
-        .utility-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 255, 65, 0.2);
-            border-color: var(--accent-gold);
-        }
-
-        .utility-card h4 {
-            color: var(--accent-gold);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .utility-card p {
-            color: var(--text-muted);
-            line-height: 1.8;
-        }
-
-        /* Game Ecosystem Section */
-        .games {
-            background: linear-gradient(180deg, rgba(0, 255, 65, 0.05), transparent);
-        }
-
-        .games-image {
-            display: flex;
-            justify-content: center;
+        h2 {
+            font-size: 2.5rem;
             margin-bottom: 3rem;
+            text-align: center;
+            color: var(--gold);
         }
 
-        .games-image img {
-            width: 100%;
-            max-width: 100%;
-            border-radius: 10px;
-            filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.2));
-        }
-
-        .games-grid {
+        /* Ecosystem */
+        .ecosystem-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
 
-        .game-card {
-            background: var(--secondary-black);
-            border: 2px solid var(--accent-green);
+        .ecosystem-card {
+            background: var(--dark-gray);
             padding: 2rem;
             border-radius: 10px;
-            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.2);
             transition: all 0.3s;
+            text-align: center;
         }
 
-        .game-card:hover {
-            border-color: var(--accent-gold);
-            box-shadow: 0 10px 30px rgba(0, 255, 65, 0.2);
+        .ecosystem-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
         }
 
-        .game-icon {
-            font-size: 3rem;
+        .ecosystem-card h3 {
+            color: var(--gold);
             margin-bottom: 1rem;
+            font-size: 1.3rem;
         }
 
-        .game-card h4 {
-            color: var(--accent-gold);
-            margin-bottom: 0.5rem;
-        }
-
-        .game-card p {
+        .ecosystem-card p {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
-        /* Tokenomics Section */
-        .tokenomics {
-            background: linear-gradient(180deg, transparent, rgba(0, 255, 65, 0.05));
+        /* Roadmap */
+        .roadmap-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
-        .tokenomics-image {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 3rem;
-        }
-
-        .tokenomics-image img {
-            width: 100%;
-            max-width: 100%;
-            border-radius: 10px;
-            filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.2));
-        }
-
-        .tokenomics-text {
-            background: linear-gradient(135deg, rgba(0, 255, 65, 0.05), rgba(255, 215, 0, 0.05));
-            border: 2px solid var(--accent-green);
+        .roadmap-phase {
+            background: var(--dark-gray);
             padding: 2rem;
             border-radius: 10px;
-            margin-bottom: 2rem;
+            border-left: 4px solid var(--gold);
         }
 
-        .tokenomics-text h3 {
-            color: var(--accent-gold);
-            margin-bottom: 1rem;
-        }
-
-        .tokenomics-text p {
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .tokenomics-text strong {
-            color: var(--accent-green);
-        }
-
-        /* Roadmap Section */
-        .roadmap {
-            background: linear-gradient(180deg, rgba(0, 255, 65, 0.05), transparent);
-        }
-
-        .roadmap-timeline {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+        .roadmap-phase h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
         }
 
         .roadmap-item {
-            background: var(--secondary-black);
-            border-left: 4px solid var(--accent-green);
-            padding: 2rem;
-            border-radius: 5px;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
             position: relative;
         }
 
-        .roadmap-item.completed {
-            border-left-color: var(--accent-gold);
+        .roadmap-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
         }
 
-        .roadmap-item h4 {
-            color: var(--accent-gold);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+        .roadmap-item.completed::before {
+            background: #00ff41;
         }
 
-        .roadmap-item p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
+        .roadmap-item.in-progress::before {
+            background: #ffa500;
         }
 
         .status {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: var(--accent-green);
-            color: var(--primary-black);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-top: 1rem;
-            text-transform: uppercase;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
         }
 
-        .status.pending {
-            background: var(--accent-gold);
-        }
-
-        /* Community Section */
-        .community {
-            background: linear-gradient(180deg, transparent, rgba(0, 255, 65, 0.05));
-            text-align: center;
-        }
-
-        .community-image {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 3rem;
-        }
-
-        .community-image img {
-            width: 100%;
-            max-width: 100%;
-            border-radius: 10px;
-            filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.2));
-        }
-
+        /* Social Links */
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--secondary-black);
-            border: 2px solid var(--accent-green);
-            border-radius: 50%;
-            color: var(--accent-green);
-            text-decoration: none;
-            font-size: 1.5rem;
-            transition: all 0.3s;
-        }
-
-        .social-link:hover {
-            background: var(--accent-green);
-            color: var(--primary-black);
-            transform: scale(1.1);
-        }
-
-        /* FAQ Section */
-        .faq {
-            background: linear-gradient(180deg, rgba(0, 255, 65, 0.05), transparent);
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: var(--secondary-black);
-            border: 1px solid var(--accent-green);
-            margin-bottom: 1rem;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: linear-gradient(90deg, rgba(0, 255, 65, 0.05), transparent);
-            transition: all 0.3s;
-        }
-
-        .faq-question:hover {
-            background: linear-gradient(90deg, rgba(0, 255, 65, 0.1), transparent);
-        }
-
-        .faq-question h4 {
-            color: var(--accent-gold);
-            font-size: 1.1rem;
-        }
-
-        .faq-toggle {
-            color: var(--accent-green);
-            font-size: 1.5rem;
-            transition: transform 0.3s;
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            display: none;
-            padding: 1.5rem;
-            color: var(--text-muted);
-            border-top: 1px solid var(--accent-green);
-        }
-
-        .faq-item.active .faq-answer {
-            display: block;
-        }
-
-        /* Call to Action */
-        .cta-final {
-            background: linear-gradient(135deg, rgba(0, 255, 65, 0.1), rgba(255, 215, 0, 0.1));
-            border: 2px solid var(--accent-green);
-            padding: 3rem;
-            border-radius: 10px;
-            text-align: center;
+            gap: 1.5rem;
             margin: 3rem 0;
         }
 
-        .cta-final h2 {
-            color: var(--accent-gold);
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-final p {
-            color: var(--text-light);
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--dark-gray);
+            border: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            text-decoration: none;
+            transition: all 0.3s;
             font-size: 1.2rem;
-            margin-bottom: 2rem;
-            line-height: 1.8;
         }
 
-        .final-message {
-            font-size: 2rem;
-            color: var(--accent-green);
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 2rem;
+        .social-btn:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: scale(1.1);
         }
 
         /* Footer */
         footer {
-            background: var(--primary-black);
-            border-top: 2px solid var(--accent-green);
+            background: var(--dark-gray);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
             padding: 2rem;
             text-align: center;
             color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
-        footer p {
-            margin: 0.5rem 0;
+        .contract-address {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            word-break: break-all;
+            font-family: monospace;
+            color: var(--gold);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero-content,
-            .vision-grid,
-            .meme-content {
-                grid-template-columns: 1fr;
+            nav ul {
+                gap: 1rem;
             }
 
-            .meme-image {
-                order: 0;
-            }
-
-            .hero-text h1 {
+            .hero-content h1 {
                 font-size: 2rem;
             }
 
-            nav ul {
-                gap: 1rem;
-                font-size: 0.8rem;
+            .hero-content p {
+                font-size: 1rem;
             }
 
-            .section-title {
+            h2 {
                 font-size: 1.8rem;
             }
 
@@ -692,547 +307,162 @@
 
             .btn {
                 width: 100%;
-                text-align: center;
             }
+        }
 
-            .disclaimer {
-                margin: 2rem 1rem;
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
-
-        /* What is SuperBull Section */
-        .what-is-superbull {
-            background: linear-gradient(180deg, transparent, rgba(0, 255, 65, 0.05));
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .what-intro {
-            background: linear-gradient(135deg, rgba(0, 255, 65, 0.05), rgba(255, 215, 0, 0.05));
-            border: 2px solid var(--accent-green);
-            padding: 2rem;
-            border-radius: 10px;
-            margin-bottom: 3rem;
-        }
-
-        .what-intro h3 {
-            color: var(--accent-gold);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .what-intro p {
-            color: var(--text-muted);
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-
-        .what-problem {
-            margin-bottom: 3rem;
-        }
-
-        .what-problem h3 {
-            color: var(--accent-gold);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .problem-card {
-            background: var(--secondary-black);
-            border: 2px solid var(--warning-red);
-            padding: 1.5rem;
-            border-radius: 10px;
-            transition: all 0.3s;
-        }
-
-        .problem-card:hover {
-            border-color: var(--accent-gold);
-            box-shadow: 0 10px 30px rgba(255, 68, 68, 0.2);
-        }
-
-        .problem-card h4 {
-            color: var(--warning-red);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .problem-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .what-solution {
-            margin-bottom: 3rem;
-        }
-
-        .what-solution h3 {
-            color: var(--accent-gold);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .solution-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .feature {
-            background: linear-gradient(135deg, rgba(0, 255, 65, 0.05), rgba(255, 215, 0, 0.05));
-            border: 2px solid var(--accent-green);
-            padding: 1.5rem;
-            border-radius: 10px;
-            transition: all 0.3s;
-        }
-
-        .feature:hover {
-            border-color: var(--accent-gold);
-            box-shadow: 0 10px 30px rgba(0, 255, 65, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .feature h4 {
-            color: var(--accent-gold);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .feature p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .what-ecosystem {
-            background: linear-gradient(135deg, rgba(0, 255, 65, 0.05), rgba(255, 215, 0, 0.05));
-            border: 2px solid var(--accent-green);
-            padding: 2rem;
-            border-radius: 10px;
-        }
-
-        .what-ecosystem h3 {
-            color: var(--accent-gold);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .what-ecosystem p {
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
+        section {
+            animation: fadeIn 0.6s ease-out;
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo-nav">
-            $<span>SBULL</span>
-        </div>
+        <a href="#" class="logo">SuperBull</a>
         <ul>
-            <li><a href="#what">What is SuperBull</a></li>
-            <li><a href="#vision">Vision</a></li>
-            <li><a href="#meme">Meme Token</a></li>
-            <li><a href="#utility">Utility</a></li>
-            <li><a href="#games">Games</a></li>
-            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#ecosystem">Ecosystem</a></li>
+            <li><a href="#roadmap">Roadmap</a></li>
+            <li><a href="whitepaper.html" class="btn btn-primary" style="padding: 0.5rem 1rem; margin: 0;">Whitepaper</a></li>
         </ul>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-text">
-                <h1>SuperBull</h1>
-                <p class="hero-subtitle">The Bull Ecosystem</p>
-                <p>Building the Bull ecosystem the Bitcoin of memecoins and gamcoins.</p>
-                <p>Join us on this journey to build something unprecedented. Your support is essential to our success.</p>
-                <div class="cta-buttons">
-                    <button class="btn">Join Discord</button>
-                    <button class="btn btn-gold">Follow Twitter</button>
-                </div>
+            <h1>SuperBull</h1>
+            <p>The Bull Ecosystem - Combining gaming, NFTs, and memecoins in a unified experience</p>
+            <div class="cta-buttons">
+                <a href="https://pump.fun/coin/25m6fSaj53nKqomdM9gevzE67vqxPBURBnn2q7nKpump" target="_blank" class="btn btn-primary">Buy on Pump.fun</a>
+                <a href="whitepaper.html" class="btn btn-secondary">Read Whitepaper</a>
             </div>
-            <div class="hero-image">
-                <img src="logo.png" alt="SuperBull Logo">
+            <div class="social-links">
+                <a href="https://t.me/SuperBullOficial" target="_blank" class="social-btn" title="Telegram">📱</a>
+                <a href="https://x.com/SuperBullHQ" target="_blank" class="social-btn" title="X (Twitter)">𝕏</a>
+                <a href="https://pump.fun/coin/25m6fSaj53nKqomdM9gevzE67vqxPBURBnn2q7nKpump" target="_blank" class="social-btn" title="Pump.fun">💰</a>
             </div>
         </div>
     </section>
 
-    <!-- Disclaimer -->
-    <div class="disclaimer">
-        <h3>⚠️ Important Disclaimer</h3>
-        <p><strong>$SBULL is a meme token</strong> with no real value at this moment. SuperBull is a gaming ecosystem designed to explore the potential of community-driven ecosystems.</p>
-        <p>Holders of $SBULL may become eligible for a real utility token with a completely different tokenomics structure. However, <strong>no guarantees are made</strong>, and all details are still under review.</p>
-        <p><strong></strong> Do your own research before investing.</p>
-    </div>
-
-    <!-- What is SuperBull Section -->
-    <section class="what-is-superbull" id="what">
-        <div class="section-container">
-            <h2 class="section-title">What is SuperBull?</h2>
-            
-            <div class="what-intro">
-                <h3>SuperBull: A Gaming Ecosystem with Real Economics</h3>
-                <p>SuperBull is an ecosystem of games composed of an NFT marketplace, multiple games, and memecoins that finance the development of each game. The ecosystem also generates passive income for memecoin holders, rewards for NFT holders, and community raffles.</p>
+    <!-- Ecosystem Section -->
+    <section id="ecosystem">
+        <h2>The Ecosystem</h2>
+        <div class="ecosystem-grid">
+            <div class="ecosystem-card">
+                <h3>$SBULL</h3>
+                <p>The meme token that started it all. Available on Pump.fun with fair launch mechanics.</p>
             </div>
-
-            <div class="what-problem">
-                <h3>🎮 The Problem SuperBull Solves</h3>
-                <p>The Web3 gaming space faces a critical challenge: <strong>many projects launch daily, but few survive.</strong> The culprit? Not a lack of players, but a lack of incentives.</p>
-                
-                <div class="problem-grid">
-                    <div class="problem-card">
-                        <h4>💥 Unsustainable Inflation</h4>
-                        <p>Most NFT games suffer from token inflation that crashes prices, causing even top players to exit at a loss after holding for months.</p>
-                    </div>
-                    <div class="problem-card">
-                        <h4>📊 No Long-Term Incentives</h4>
-                        <p>Players outside the top rankings have no reason to continue playing. Token and NFT holders have no reason to hold long-term.</p>
-                    </div>
-                    <div class="problem-card">
-                        <h4>🔄 Poor Tokenomics</h4>
-                        <p>Most games lack a cohesive economic model that rewards all participants: players, NFT holders, token holders, and the community.</p>
-                    </div>
-                </div>
+            <div class="ecosystem-card">
+                <h3>$SSBULL</h3>
+                <p>The utility token powering the Super Bull ecosystem with real use cases in games.</p>
             </div>
-
-            <div class="what-solution">
-                <h3>✅ The SuperBull Solution</h3>
-                <p>SuperBull was designed to be <strong>deflationary from day one</strong>, keeping supply under control while maintaining incentives for everyone.</p>
-                
-                <div class="solution-features">
-                    <div class="feature">
-                        <h4>🔥 Deflationary Economics</h4>
-                        <p>25% of all tokens spent in games are burned forever, creating constant deflation that rewards long-term holders.</p>
-                    </div>
-                    <div class="feature">
-                        <h4>🎯 Unified Incentive System</h4>
-                        <p>The ecosystem maintains incentives for players, NFT holders, game token holders, AND memecoin holders simultaneously.</p>
-                    </div>
-                    <div class="feature">
-                        <h4>🎮 Play-to-Earn Done Right</h4>
-                        <p>Team tokens unlock ONLY when games generate demand. No arbitrary time-based unlocks. No game activity = no team tokens.</p>
-                    </div>
-                    <div class="feature">
-                        <h4>🏢 Enterprise-Grade Model</h4>
-                        <p>The SuperBull economic model is so robust it could be adopted by major gaming companies that haven't embraced Web3 yet.</p>
-                    </div>
-                </div>
+            <div class="ecosystem-card">
+                <h3>Games</h3>
+                <p>Play-to-earn games where players compete and earn rewards based on performance.</p>
             </div>
-
-            <div class="what-ecosystem">
-                <h3>🌐 The SuperBull Ecosystem</h3>
-                <p>SuperBull isn't just one game—it's an interconnected ecosystem:</p>
-                <ul style="margin-left: 2rem; margin-top: 1rem; color: var(--text-muted);">
-                    <li>🎮 <strong>Multiple Games:</strong> Each with its own token, all following the same deflationary model</li>
-                    <li>🖼️ <strong>NFT Marketplace:</strong> Trade, buy, and sell game assets</li>
-                    <li>💰 <strong>Passive Income:</strong> Memecoin holders earn rewards from game activity</li>
-                    <li>🏆 <strong>Community Rewards:</strong> Raffles and incentives for active participants</li>
-                    <li>🔗 <strong>Cross-Game Synergies:</strong> Assets and tokens work across multiple games</li>
-                </ul>
+            <div class="ecosystem-card">
+                <h3>NFTs</h3>
+                <p>Collectible NFTs that provide benefits and rewards within the ecosystem.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- The Vision Section -->
-    <section class="vision" id="vision">
-        <div class="section-container">
-            <h2 class="section-title">Our Vision</h2>
-            <div class="vision-grid">
-                <div class="vision-text">
-                    <h3>Building the Bitcoin of Memecoins</h3>
-                    <p>SuperBull is a gaming ecosystem that combines gaming, community engagement, and tokenomics that actually reward participation.</p>
-                    <p>We believe that with the right structure and community support, we can build something that stands the test of time—not just another pump-and-dump scheme.</p>
-                    <p><strong>Success requires your help.</strong> We're building this together, and every member of our community is crucial to making this vision a reality.</p>
-                </div>
-                <div class="vision-image">
-                    <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663704499804/ZdeW9XVUFh5Skd3vCiJgKZ/vision-4i4iTrsX2aAtqEVPSa6HMR.webp" alt="Bull Vision">
-                </div>
+            <div class="ecosystem-card">
+                <h3>Marketplace</h3>
+                <p>Trade NFTs and in-game items in a decentralized marketplace.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- The Meme Token Section -->
-    <section class="meme-token" id="meme">
-        <div class="section-container">
-            <h2 class="section-title">The Meme Token ($SBULL)</h2>
-            <div class="meme-content">
-                <div class="meme-image">
-                    <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663704499804/ZdeW9XVUFh5Skd3vCiJgKZ/meme-token-RYi5YYeacSpEdivwBpGpvy.webp" alt="SBULL Meme Token">
-                </div>
-                <div class="meme-text">
-                    <h3>Fair Launch, Equal Opportunity</h3>
-                    <p>$SBULL was launched on <strong>Pump.fun</strong>, ensuring complete fairness and transparency.</p>
-                    <div class="highlight">
-                        <p><strong>Key Facts:</strong></p>
-                        <p>✓ No privileged investment rounds</p>
-                        <p>✓ No team tokens locked away</p>
-                        <p>✓ All tokens went to initial liquidity</p>
-                        <p>✓ Everyone has the same chance to buy at the same price</p>
-                    </div>
-                    <p>The creator holds only the tokens they personally purchased, just like any other community member. This is true fairness.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Utility Token Section -->
-    <section class="utility" id="utility">
-        <div class="section-container">
-            <h2 class="section-title">The Real Utility Token (Coming)</h2>
-            <div class="tokenomics-text">
-                <h3>🎂 The Complete Cake is Still Being Baked</h3>
-                <p>What you see below is just the <strong>whipped cream on top</strong> of the cake. The real tokenomics structure is much more comprehensive and is currently under review.</p>
-                <p>We're crafting something revolutionary—the <strong>cherry on top</strong> of this ecosystem that will change everything. Details will be revealed as they're finalized.</p>
-                <p>What we can tell you now:</p>
-            </div>
-            <div class="utility-grid">
-                <div class="utility-card">
-                    <h4>📊 21 Million Supply Cap</h4>
-                    <p>The utility token will have a maximum supply of 21 million—inspired by Bitcoin's scarcity model. This ensures true value preservation.</p>
-                </div>
-                <div class="utility-card">
-                    <h4>🎮 Play-to-Earn Unlock</h4>
-                    <p>Team tokens are NOT arbitrarily unlocked over time. They unlock ONLY when the game generates demand. No game activity = no team tokens. Simple as that.</p>
-                </div>
-                <div class="utility-card">
-                    <h4>🔥 25% Token Burn</h4>
-                    <p>25% of all tokens spent in games are burned forever. This creates constant deflation and rewards long-term holders as the supply shrinks.</p>
-                </div>
-                <div class="utility-card">
-                    <h4>🎁 Potential Airdrop</h4>
-                    <p>$SBULL holders may receive an airdrop of the new utility token. Details are still being finalized, but the community will be the first to know.</p>
-                </div>
-            </div>
-            <div class="tokenomics-text" style="margin-top: 2rem;">
-                <p><strong>⭐ Much More to Come:</strong> The complete tokenomics includes additional mechanics, reward structures, and ecosystem features that are currently under development. Stay tuned for the full reveal.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Game Ecosystem Section -->
-    <section class="games" id="games">
-        <div class="section-container">
-            <h2 class="section-title">The SuperBull Game Ecosystem</h2>
-            <div class="games-image">
-                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663704499804/ZdeW9XVUFh5Skd3vCiJgKZ/games-NNkKjjuco8Ch8wh8bSq8cd.webp" alt="Game Ecosystem">
-            </div>
-            <p style="text-align: center; color: var(--text-muted); margin-bottom: 3rem; font-size: 1.1rem;">
-                Multiple games, one unified tokenomics. All games follow the same 25% burn model.
-            </p>
-            <div class="games-grid">
-                <div class="game-card">
-                    <div class="game-icon">🎮</div>
-                    <h4>SuperBull Game</h4>
-                    <p>The flagship game where players earn and spend tokens. Every transaction contributes to the ecosystem.</p>
-                </div>
-                <div class="game-card">
-                    <div class="game-icon">🏆</div>
-                    <h4>Competitive Play</h4>
-                    <p>Battle other bulls, climb leaderboards, and earn rewards. The more you play, the more you earn—and the more you can spend.</p>
-                </div>
-                <div class="game-card">
-                    <div class="game-icon">🤝</div>
-                    <h4>Community Interaction</h4>
-                    <p>Interact with other bulls, form alliances, and participate in community events. Every action has value.</p>
-                </div>
-                <div class="game-card">
-                    <div class="game-icon">💰</div>
-                    <h4>Token Spending</h4>
-                    <p>Spend tokens to play, upgrade, and unlock features. 25% of every transaction is burned, benefiting all holders.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tokenomics Section -->
-    <section class="tokenomics">
-        <div class="section-container">
-            <h2 class="section-title">Utility Token Tokenomics (Preview)</h2>
-            <div class="tokenomics-image">
-                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663704499804/ZdeW9XVUFh5Skd3vCiJgKZ/tokenomics-m77WzM9yMjknGYvWHdVP4p.webp" alt="Tokenomics Future">
-            </div>
-            <div class="tokenomics-text">
-                <h3>🔮 The Future is Still Being Written</h3>
-                <p>The tokenomics structure you see is just the foundation. We're currently reviewing and refining additional mechanics that will make this ecosystem truly revolutionary.</p>
-                <p><strong>What's being finalized:</strong></p>
-                <ul style="margin-left: 2rem; margin-top: 1rem;">
-                    <li>Advanced reward mechanisms</li>
-                    <li>Governance structures</li>
-                    <li>Sustainability models</li>
-                    <li>Multi-game integration logic</li>
-                    <li>And much more...</li>
-                </ul>
-                <p style="margin-top: 1rem;"><strong>The complete picture will be revealed soon.</strong> This is not just another tokenomics—it's a complete reimagining of how memecoins and gamcoins can work together.</p>
+            <div class="ecosystem-card">
+                <h3>Community</h3>
+                <p>Join thousands of bull enthusiasts building the future together.</p>
             </div>
         </div>
     </section>
 
     <!-- Roadmap Section -->
-    <section class="roadmap">
-        <div class="section-container">
-            <h2 class="section-title">Roadmap</h2>
-            <div class="roadmap-timeline">
+    <section id="roadmap">
+        <h2>Roadmap</h2>
+        <div class="roadmap-container">
+            <!-- Phase 1 -->
+            <div class="roadmap-phase">
+                <h3>Phase 1 - Foundation</h3>
                 <div class="roadmap-item completed">
-                    <h4>Phase 1</h4>
-                    <p>$SBULL Launch & Community Building</p>
-                    <span class="status">Completed</span>
+                    <strong>$SBULL Launch</strong>
+                    <div class="status">✅ Completed</div>
                 </div>
-                <div class="roadmap-item completed">
-                    <h4>Phase 2</h4>
-                    <p>DEX Listing & Partnerships</p>
-                    <span class="status">Completed</span>
+                <div class="roadmap-item in-progress">
+                    <strong>Whitepaper Publication</strong>
+                    <div class="status">🚧 In Progress</div>
+                </div>
+                <div class="roadmap-item in-progress">
+                    <strong>Community Growth</strong>
+                    <div class="status">🚧 In Progress</div>
+                </div>
+                <div class="roadmap-item in-progress">
+                    <strong>Liquidity & Audit</strong>
+                    <div class="status">🚧 In Progress</div>
+                </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="roadmap-phase">
+                <h3>Phase 2 - Launch</h3>
+                <div class="roadmap-item">
+                    <strong>$SSBULL Launch</strong>
+                    <div class="status">Coming Soon</div>
                 </div>
                 <div class="roadmap-item">
-                    <h4>Phase 3</h4>
-                    <p>Utility Token Design & Game Development</p>
-                    <span class="status pending">In Progress</span>
+                    <strong>Meme Card Game</strong>
+                    <div class="status">Coming Soon</div>
                 </div>
                 <div class="roadmap-item">
-                    <h4>Phase 4</h4>
-                    <p>Game Launch & Airdrop Distribution</p>
-                    <span class="status pending">Planned</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Community Section -->
-    <section class="community">
-        <div class="section-container">
-            <h2 class="section-title">Join the Herd</h2>
-            <div class="community-image">
-                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663704499804/ZdeW9XVUFh5Skd3vCiJgKZ/community-WWDq6x4uEWu9kBjLPgbsVR.webp" alt="Community">
-            </div>
-            <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2rem;">
-                Connect with thousands of bull enthusiasts and be part of the SuperBull revolution.
-            </p>
-            <div class="social-links">
-                <a href="https://twitter.com/SuperBullHQ" class="social-link" title="Twitter">𝕏</a>
-                <a href="https://twitter.com/SuperBullHQ" class="social-link" title="Twitter">𝕏</a>
-                <a href="#" class="social-link" title="Telegram">📱</a>
-                <a href="#" class="social-link" title="GitHub">💻</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq" id="faq">
-        <div class="faq-container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            
-            <div class="faq-item active">
-                <div class="faq-question">
-                    <h4>Is $SBULL a real investment?</h4>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    No. $SBULL is a meme token with no real value at this moment. It's an experimental project. However, holders may become eligible for a real utility token in the future. This is not financial advice—invest only what you can afford to lose.
+                    <strong>NFT Marketplace</strong>
+                    <div class="status">Coming Soon</div>
                 </div>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h4>When will the complete tokenomics be revealed?</h4>
-                    <span class="faq-toggle">▼</span>
+            <!-- Phase 3 -->
+            <div class="roadmap-phase">
+                <h3>Phase 3 - Expansion</h3>
+                <div class="roadmap-item">
+                    <strong>New Games</strong>
+                    <div class="status">Planned</div>
                 </div>
-                <div class="faq-answer">
-                    The complete tokenomics is currently under review and refinement. We're designing something revolutionary that combines multiple mechanics. Details will be announced as they're finalized. Join our Discord to stay updated on announcements.
+                <div class="roadmap-item">
+                    <strong>New Features</strong>
+                    <div class="status">Planned</div>
                 </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h4>What makes this different from other memecoins?</h4>
-                    <span class="faq-toggle">▼</span>
+                <div class="roadmap-item">
+                    <strong>Strategic Partnerships</strong>
+                    <div class="status">Planned</div>
                 </div>
-                <div class="faq-answer">
-                    SuperBull is designed with a real endgame: a utility token with a 21M supply cap, play-to-earn mechanics, and a 25% burn mechanism. We're not just creating hype—we're building an ecosystem with actual use cases and sustainability.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h4>Will I get an airdrop?</h4>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    $SBULL holders may receive an airdrop of the new utility token, but details are still being finalized. No guarantees are made. Join our community to stay updated on announcements.
+                <div class="roadmap-item">
+                    <strong>Ecosystem Expansion</strong>
+                    <div class="status">Planned</div>
                 </div>
             </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h4>How do I buy $SBULL?</h4>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    $SBULL was launched on Pump.fun. You can purchase it on decentralized exchanges. Always verify the contract address on our official channels before trading to avoid scams.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h4>Why should I believe in this project?</h4>
-                    <span class="faq-toggle">▼</span>
-                </div>
-                <div class="faq-answer">
-                    We are building with a fair launch (Pump.fun), no privileged rounds, and a creator who holds only what they personally bought. We're transparent about our goals and challenges. We're not promising overnight riches—we're building something sustainable.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final Call to Action -->
-    <section class="section-container">
-        <div class="cta-final">
-            <h2>We Need Your Support</h2>
-            <p>Building the Bitcoin of memecoins and gamcoins is not a solo mission. Every community member, every supporter, every believer in this vision is crucial to our success.</p>
-            <p>We're creating something unprecedented—a sustainable ecosystem that rewards participation, burns tokens to create scarcity, and builds real value through gameplay.</p>
-            <p>Join us. Help us. Believe in us.</p>
-            <div class="final-message">See You At The Top 🚀</div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 SuperBull. All rights reserved.</p>
-        <p>The Bull Ecosystem</p>
-        <p style="font-size: 0.8rem; margin-top: 1rem;">Disclaimer: $SBULL is a meme token with no real value. SuperBull is a gaming ecosystem. Do your own research before investing.</p>
+        <p>&copy; 2026 SuperBull. All rights reserved.</p>
+        <div class="contract-address">
+            <strong>$SBULL Contract:</strong><br>
+            25m6fSaj53nKqomdM9gevzE67vqxPBURBnn2q7nKpump
+        </div>
+        <div style="margin-top: 1.5rem;">
+            <a href="https://t.me/SuperBullOficial" target="_blank" style="color: var(--gold); text-decoration: none; margin: 0 1rem;">Telegram</a>
+            <a href="https://x.com/SuperBullHQ" target="_blank" style="color: var(--gold); text-decoration: none; margin: 0 1rem;">X</a>
+            <a href="https://pump.fun/coin/25m6fSaj53nKqomdM9gevzE67vqxPBURBnn2q7nKpump" target="_blank" style="color: var(--gold); text-decoration: none; margin: 0 1rem;">Pump.fun</a>
+        </div>
     </footer>
-
-    <script>
-        // FAQ Toggle
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', function() {
-                this.parentElement.classList.toggle('active');
-            });
-        });
-
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Button Click Handlers
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                alert('Link will be added soon! Join our community to stay updated.');
-            });
-        });
-    </script>
 </body>
 </html>
