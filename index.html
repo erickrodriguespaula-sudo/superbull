@@ -76,9 +76,55 @@
             padding: 2rem;
             margin-top: 60px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-content h1 {
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 4s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.9; }
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            z-index: 10;
+            position: relative;
+        }
+
+        .hero-main {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+
+        .hero-text h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
             background: linear-gradient(135deg, var(--gold), var(--white));
@@ -87,13 +133,30 @@
             background-clip: text;
         }
 
-        .hero-content p {
+        .hero-text p {
             font-size: 1.3rem;
             color: var(--text-muted);
             margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.5));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
         .cta-buttons {
@@ -101,6 +164,7 @@
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
+            margin-top: 2rem;
         }
 
         .btn {
@@ -170,6 +234,12 @@
             border-color: var(--gold);
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+
+        .ecosystem-card img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
         }
 
         .ecosystem-card h3 {
@@ -289,11 +359,19 @@
                 gap: 1rem;
             }
 
-            .hero-content h1 {
-                font-size: 2rem;
+            .hero-main {
+                flex-direction: column;
             }
 
-            .hero-content p {
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
                 font-size: 1rem;
             }
 
@@ -341,11 +419,18 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>SuperBull</h1>
-            <p>The Bull Ecosystem - Combining gaming, NFTs, and memecoins in a unified experience</p>
-            <div class="cta-buttons">
-                <a href="https://pump.fun/coin/25m6fSaj53nKqomdM9gevzE67vqxPBURBnn2q7nKpump" target="_blank" class="btn btn-primary">Buy on Pump.fun</a>
-                <a href="whitepaper.html" class="btn btn-secondary">Read Whitepaper</a>
+            <div class="hero-main">
+                <div class="hero-text">
+                    <h1>SuperBull</h1>
+                    <p>The Bull Ecosystem - Combining gaming, NFTs, and memecoins in a unified experience</p>
+                    <div class="cta-buttons">
+                        <a href="https://pump.fun/coin/25m6fSaj53nKqomdM9gevzE67vqxPBURBnn2q7nKpump" target="_blank" class="btn btn-primary">Buy on Pump.fun</a>
+                        <a href="whitepaper.html" class="btn btn-secondary">Read Whitepaper</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663704499804/ZdeW9XVUFh5Skd3vCiJgKZ/bull-mascot-Br6TVkoUc45ghrZkTmkzWc.webp" alt="SuperBull Mascot">
+                </div>
             </div>
             <div class="social-links">
                 <a href="https://t.me/SuperBullOficial" target="_blank" class="social-btn" title="Telegram">📱</a>
@@ -360,20 +445,27 @@
         <h2>The Ecosystem</h2>
         <div class="ecosystem-grid">
             <div class="ecosystem-card">
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663704499804/ZdeW9XVUFh5Skd3vCiJgKZ/icon-blockchain-3o8LzxQqZFFAcSMK959pRY.webp" alt="Blockchain Icon">
+                <h3>Blockchain</h3>
+                <p>The meme token that started it all. Available on Pump.fun with fair launch mechanics.</p>
+            </div>
+            <div class="ecosystem-card">
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663704499804/ZdeW9XVUFh5Skd3vCiJgKZ/icon-games-drZA3MFKiAYVAHEAgjXRTe.webp" alt="Games Icon">
+                <h3>Games</h3>
+                <p>Play-to-earn games where players compete and earn rewards based on performance.</p>
+            </div>
+            <div class="ecosystem-card">
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663704499804/ZdeW9XVUFh5Skd3vCiJgKZ/icon-nft-o4iP3VHiYc8SnMFVxgtPQH.webp" alt="NFT Icon">
+                <h3>NFTs</h3>
+                <p>Collectible NFTs that provide benefits and rewards within the ecosystem.</p>
+            </div>
+            <div class="ecosystem-card">
                 <h3>$SBULL</h3>
                 <p>The meme token that started it all. Available on Pump.fun with fair launch mechanics.</p>
             </div>
             <div class="ecosystem-card">
                 <h3>$SSBULL</h3>
                 <p>The utility token powering the Super Bull ecosystem with real use cases in games.</p>
-            </div>
-            <div class="ecosystem-card">
-                <h3>Games</h3>
-                <p>Play-to-earn games where players compete and earn rewards based on performance.</p>
-            </div>
-            <div class="ecosystem-card">
-                <h3>NFTs</h3>
-                <p>Collectible NFTs that provide benefits and rewards within the ecosystem.</p>
             </div>
             <div class="ecosystem-card">
                 <h3>Marketplace</h3>
