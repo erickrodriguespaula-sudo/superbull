@@ -15,6 +15,7 @@
             --black: #0a0e27;
             --dark-gray: #1a1f3a;
             --gold: #d4af37;
+            --green: #00ff41;
             --white: #ffffff;
             --text-light: #e0e0e0;
             --text-muted: #888888;
@@ -75,7 +76,6 @@
             background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
             padding: 2rem;
             margin-top: 60px;
-            text-align: center;
             position: relative;
             overflow: hidden;
         }
@@ -103,30 +103,28 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             z-index: 10;
             position: relative;
         }
 
         .hero-main {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 3rem;
-            margin-bottom: 2rem;
+            align-items: center;
+            margin-bottom: 3rem;
+            width: 100%;
         }
 
         .hero-text {
-            flex: 1;
-            min-width: 300px;
             text-align: left;
         }
 
         .hero-text h1 {
             font-size: 3.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             background: linear-gradient(135deg, var(--gold), var(--white));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -134,14 +132,65 @@
         }
 
         .hero-text p {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .token-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
             margin-bottom: 2rem;
         }
 
+        .token-card {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .token-card:hover {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: var(--gold);
+        }
+
+        .token-card h3 {
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .token-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .games-info {
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .games-info h3 {
+            color: var(--green);
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .games-info p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
         .hero-image {
-            flex: 1;
-            min-width: 300px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -149,7 +198,7 @@
 
         .hero-image img {
             width: 100%;
-            max-width: 400px;
+            max-width: 500px;
             filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.5));
             animation: float 3s ease-in-out infinite;
         }
@@ -162,7 +211,6 @@
         .cta-buttons {
             display: flex;
             gap: 1rem;
-            justify-content: center;
             flex-wrap: wrap;
             margin-top: 2rem;
         }
@@ -291,7 +339,7 @@
         }
 
         .roadmap-item.completed::before {
-            background: #00ff41;
+            background: var(--green);
         }
 
         .roadmap-item.in-progress::before {
@@ -309,7 +357,7 @@
             display: flex;
             justify-content: center;
             gap: 1.5rem;
-            margin: 3rem 0;
+            margin: 2rem 0;
         }
 
         .social-btn {
@@ -354,13 +402,23 @@
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-main {
+                grid-template-columns: 1fr;
+            }
+
+            .token-info {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+        }
+
         @media (max-width: 768px) {
             nav ul {
                 gap: 1rem;
-            }
-
-            .hero-main {
-                flex-direction: column;
             }
 
             .hero-text {
@@ -368,11 +426,11 @@
             }
 
             .hero-text h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
             .hero-text p {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
 
             h2 {
@@ -422,14 +480,31 @@
             <div class="hero-main">
                 <div class="hero-text">
                     <h1>SuperBull</h1>
-                    <p>The Bull Ecosystem - Combining gaming, NFTs, and memecoins in a unified experience</p>
+                    <p>The Memecoin with Bull Power - Building the Future of GameFi</p>
+
+                    <div class="token-info">
+                        <div class="token-card">
+                            <h3>$SBULL</h3>
+                            <p>The memecoin that originated the SuperBull ecosystem. Holders participate in ecosystem growth through 5% distribution of all $SSBULL spent in seasonal registrations. Minimum $10 USD in $SBULL required for rewards eligibility.</p>
+                        </div>
+                        <div class="token-card">
+                            <h3>$SSBULL</h3>
+                            <p>The main ecosystem token used for seasonal participation, reward distribution, and game economy. Designed with sustainable and deflationary mechanics from day one, powering all future ecosystem games.</p>
+                        </div>
+                    </div>
+
+                    <div class="games-info">
+                        <h3>🎮 Interconnected Games Ecosystem</h3>
+                        <p>SuperBull is building an ecosystem of linked games where all titles share the same $SSBULL-based economy. Players use the same token across different experiences. The first game: <strong>Super Bull Meme Card Game</strong>.</p>
+                    </div>
+
                     <div class="cta-buttons">
-                        <a href="https://pump.fun/coin/25m6fSaj53nKqomdM9gevzE67vqxPBURBnn2q7nKpump" target="_blank" class="btn btn-primary">Buy on Pump.fun</a>
+                        <a href="https://pump.fun/coin/25m6fSaj53nKqomdM9gevzE67vqxPBURBnn2q7nKpump" target="_blank" class="btn btn-primary">Buy $SBULL on Pump.fun</a>
                         <a href="whitepaper.html" class="btn btn-secondary">Read Whitepaper</a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663704499804/ZdeW9XVUFh5Skd3vCiJgKZ/superbull-original-mascot.png" alt="SuperBull Mascot">
+                    <img src="/manus-storage/superbull-mascot-official_b19dcf01.png" alt="SuperBull Mascot">
                 </div>
             </div>
             <div class="social-links">
@@ -445,35 +520,28 @@
         <h2>The Ecosystem</h2>
         <div class="ecosystem-grid">
             <div class="ecosystem-card">
-                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663704499804/ZdeW9XVUFh5Skd3vCiJgKZ/icon-blockchain-3o8LzxQqZFFAcSMK959pRY.webp" alt="Blockchain Icon">
-                <h3>Blockchain</h3>
-                <p>The meme token that started it all. Available on Pump.fun with fair launch mechanics.</p>
+                <h3>$SBULL Token</h3>
+                <p>The memecoin that started it all. Fair launch mechanics with community rewards and ecosystem participation benefits.</p>
             </div>
             <div class="ecosystem-card">
-                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663704499804/ZdeW9XVUFh5Skd3vCiJgKZ/icon-games-drZA3MFKiAYVAHEAgjXRTe.webp" alt="Games Icon">
-                <h3>Games</h3>
-                <p>Play-to-earn games where players compete and earn rewards based on performance.</p>
+                <h3>$SSBULL Token</h3>
+                <p>The utility token powering games, seasons, and the entire SuperBull economy with sustainable deflation mechanics.</p>
             </div>
             <div class="ecosystem-card">
-                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663704499804/ZdeW9XVUFh5Skd3vCiJgKZ/icon-nft-o4iP3VHiYc8SnMFVxgtPQH.webp" alt="NFT Icon">
-                <h3>NFTs</h3>
-                <p>Collectible NFTs that provide benefits and rewards within the ecosystem.</p>
+                <h3>Meme Card Game</h3>
+                <p>The first interconnected game in the SuperBull ecosystem, featuring play-to-earn mechanics and $SSBULL rewards.</p>
             </div>
             <div class="ecosystem-card">
-                <h3>$SBULL</h3>
-                <p>The meme token that started it all. Available on Pump.fun with fair launch mechanics.</p>
+                <h3>Future Games</h3>
+                <p>Multiple games planned to share the same $SSBULL economy, creating a unified gaming ecosystem.</p>
             </div>
             <div class="ecosystem-card">
-                <h3>$SSBULL</h3>
-                <p>The utility token powering the Super Bull ecosystem with real use cases in games.</p>
-            </div>
-            <div class="ecosystem-card">
-                <h3>Marketplace</h3>
-                <p>Trade NFTs and in-game items in a decentralized marketplace.</p>
+                <h3>NFT Marketplace</h3>
+                <p>Trade in-game NFTs and collectibles within the SuperBull ecosystem.</p>
             </div>
             <div class="ecosystem-card">
                 <h3>Community</h3>
-                <p>Join thousands of bull enthusiasts building the future together.</p>
+                <p>Join thousands of bull enthusiasts building the future of GameFi together.</p>
             </div>
         </div>
     </section>
@@ -511,7 +579,7 @@
                     <div class="status">Coming Soon</div>
                 </div>
                 <div class="roadmap-item">
-                    <strong>Meme Card Game</strong>
+                    <strong>Super Bull Meme Card Game</strong>
                     <div class="status">Coming Soon</div>
                 </div>
                 <div class="roadmap-item">
