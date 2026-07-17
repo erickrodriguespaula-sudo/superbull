@@ -78,6 +78,8 @@
             margin-top: 60px;
             position: relative;
             min-height: auto;
+            height: auto;
+            overflow: visible;
         }
 
         .hero::before {
@@ -110,12 +112,13 @@
         }
 
         .hero-image img {
-            width: 80%;
-            max-width: 400px;
+            width: 100%;
             height: auto;
             display: block;
+            object-fit: contain;
             filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.5));
             animation: float 3s ease-in-out infinite;
+            max-width: 500px;
         }
 
         @keyframes float {
